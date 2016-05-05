@@ -2,7 +2,7 @@ task :telegram_bot => :environment do
 	puts "*************** HELLO FROM TELEGRAM BOT ***************"
 	require 'telegram/bot'
 
-	token 		= '189778292:AAEtFqp7O3llHAWo7EiEH5oJWqDj8BPKKJE'
+	token 		= ENV['TELEGRAM_TOKEN']
 	base_url 	= 'http://rubygems.org/api/v1/versions'
 
 	Telegram::Bot::Client.run(token) do |bot|
