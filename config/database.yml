@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: telegram_bot_rails_dev
+
+test:
+  <<: *default
+  database: telegram_bot_rails_test
+
+production:
+  <<: *default
+  database: telegram_bot_rails_production
