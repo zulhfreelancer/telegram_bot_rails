@@ -1,6 +1,6 @@
 ## Telegram Bot on Rails
 
-![](http://i.imgur.com/QwwK4UF.jpg)
+![](http://i.imgur.com/MQ857sS.jpg)
 
 Using [telegram-bot-ruby](https://github.com/atipugin/telegram-bot-ruby) gem this time to create a Telegram bot.
 
