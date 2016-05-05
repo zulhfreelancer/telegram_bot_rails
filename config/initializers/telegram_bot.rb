@@ -1,6 +1,6 @@
 require 'telegram/bot'
 
-token 		= ENV['TELEGRAM_TOKEN']
+token 		= '189778292:AAEtFqp7O3llHAWo7EiEH5oJWqDj8BPKKJE'
 base_url 	= 'http://rubygems.org/api/v1/versions'
 
 Telegram::Bot::Client.run(token) do |bot|
