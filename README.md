@@ -2,6 +2,8 @@
 
 ![](http://i.imgur.com/MQ857sS.jpg)
 
+[Try it now](https://telegram.me/rubygemsversionbot)
+
 Using [telegram-bot-ruby](https://github.com/atipugin/telegram-bot-ruby) gem this time to create a Telegram bot.
 
 This bot will return latest version of a gem, coming from RubyGems thru RubyGems API.
@@ -16,7 +18,7 @@ Put your Telegram bot code in a rake task (inside `lib/tasks` folder). Example: 
 
 Just run `rake telegram_bot` from your terminal
 
-### Heroku Deployment Gotchas
+### Heroku deployment gotchas
 
 1. Create a Procfile at project root directory
 2. Put this inside the Procfile: `worker:  bundle exec rake <your_rake_task>`. Example: `worker:  bundle exec rake telegram_bot`
