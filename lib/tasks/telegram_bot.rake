@@ -9,8 +9,14 @@ task :telegram_bot => :environment do
 		bot.listen do |message|
 			msg 		= message.text
 			chat_id 	= message.chat.id
-			# user_name = message.from.first_name
-			if msg.include?("gem ")
+			user 		= message.from
+			user_fname 	= user.try(:first_name)
+			user_name 	= user.try(:username)
+			puts "MESSAGE FROM #{user_fname} (#{user_name}): #{msg}"
+
+			if msg == '/start'
+				bot.api.send_message(chat_id: chat_id, text: "Please enter gem name. Example:\ngem devise")
+			elsif msg.present? && msg.include?("gem ") # use .present? to prevent nil:NilClass on .include? method
 				g = msg.split.last
 				json 		= HTTParty.get("#{base_url}/#{g}/latest.json")
 				version 	= json['version']
@@ -19,8 +25,6 @@ task :telegram_bot => :environment do
 				else
 					bot.api.send_message(chat_id: chat_id, text: "#{g} gem latest version is #{version}")
 				end
-			elsif msg == '/start'
-				bot.api.send_message(chat_id: chat_id, text: "Please enter gem name. Example:\ngem devise")
 			else
 				bot.api.send_message(chat_id: chat_id, text: "Please try again. Example:\ngem devise")
 			end
