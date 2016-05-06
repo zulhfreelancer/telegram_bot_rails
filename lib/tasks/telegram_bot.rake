@@ -2,6 +2,7 @@ task :telegram_bot => :environment do
 	puts "*************** HELLO FROM TELEGRAM BOT ***************"
 	require 'telegram/bot'
 
+	logger = Logger.new(STDOUT)
 	token 		= ENV['TELEGRAM_TOKEN']
 	base_url 	= 'http://rubygems.org/api/v1/versions'
 
@@ -12,7 +13,7 @@ task :telegram_bot => :environment do
 			user 		= message.from
 			user_fname 	= user.try(:first_name)
 			user_name 	= user.try(:username)
-			puts "MESSAGE FROM #{user_fname} (#{user_name}): #{msg}"
+			logger.info {"MESSAGE FROM #{user_fname} (#{user_name}): #{msg}"}
 
 			if msg == '/start'
 				bot.api.send_message(chat_id: chat_id, text: "Please enter gem name. Example:\ngem devise")
