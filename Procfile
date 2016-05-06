@@ -1,1 +1,1 @@
-worker:  bundle exec rake telegram_bot
+worker:  heroku run:detached rake telegram_bot
