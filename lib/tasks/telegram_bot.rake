@@ -7,7 +7,7 @@ task :telegram_bot => :environment do
 
 	Telegram::Bot::Client.run(token) do |bot|
 		bot.listen do |message|
-			msg 		= message.text
+			msg 		= message.text.downcase # to accept command like `Gem devise`
 			chat_id 	= message.chat.id
 			user 		= message.from
 			user_fname 	= user.try(:first_name)
