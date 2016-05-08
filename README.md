@@ -33,3 +33,7 @@ Just run `rake telegram_bot` from your terminal
 3. And, don't forget to add your token as Heroku config variable like below:
 
 ![](http://i.imgur.com/naG4Um6.png)
+
+### Another awesome bot examples
+
+- [AdzanTimesBot](https://github.com/xymerz1/AdzanTimesBot)
